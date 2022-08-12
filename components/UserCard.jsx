@@ -9,9 +9,10 @@ import UserCardDetail from "./UserCardDetail";
 
 export default function UserCard(props) {
   const [IsShow, setIsShow] = useState(false);
-
+  const [IsShow1, setIsShow1] = useState(true);
   const handClick = (event) => {
     setIsShow((current) => !current);
+    setIsShow1((current1) => !current1);
   };
 
   return (
@@ -36,14 +37,26 @@ export default function UserCard(props) {
         >
           {props.x.name}
         </div>
-        <div
-          style={{
-            marginRight: "0",
-            marginLeft: "auto",
-          }}
-        >
-          <IconChevronDown />
-        </div>
+        {IsShow1 && (
+          <div
+            style={{
+              marginRight: "0",
+              marginLeft: "auto",
+            }}
+          >
+            <IconChevronDown />
+          </div>
+        )}
+        {IsShow && (
+          <div
+            style={{
+              marginRight: "0",
+              marginLeft: "auto",
+            }}
+          >
+            <IconChevronUp />
+          </div>
+        )}
       </div>
       {IsShow && (
         <div>
